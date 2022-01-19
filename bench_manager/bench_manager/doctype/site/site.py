@@ -269,7 +269,7 @@ def verify_password(site_name, mysql_password):
 	verify_whitelisted_call()
 	try:
 		db = pymysql.connect(
-			host=frappe.conf.db_host or "localhost", user="root", passwd=mysql_password
+			host=frappe.conf.db_host or "localhost", port=frappe.conf.db_port, user="root", passwd=mysql_password
 		)
 		db.close()
 	except Exception as e:
